@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<form class="calculator-container" id="loanForm">
+    <h2>LOAN CALCULATOR</h2>
+    <hr>
+    
+    <div class="form-group">
+        <label>Applicant:</label>
+        <input type="text" id="applicant" placeholder="Enter name" required>
+    </div>
+
+    <div class="form-group">
+        <label>Type:</label>
+        <div class="radio-group">
+            <input type="radio" name="loanType" value="HOME" id="home" required> <label for="home">HOME</label>
+            <input type="radio" name="loanType" value="CAR" id="car"> <label for="car">CAR</label>
+            <input type="radio" name="loanType" value="PERSONAL" id="personal"> <label for="personal">PERSONAL</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Interest (%):</label>
+        <input type="text" id="interest" readonly placeholder="Select Type First">
+    </div>
+
+    <div class="form-group">
+        <label>Amount:</label>
+        <input type="number" id="amount" placeholder="Enter amount" required>
+        <small id="amount-hint">Min: -</small>
+    </div>
+
+    <div class="form-group">
+        <label>Duration (Years):</label>
+        <input type="number" id="duration" placeholder="Enter years" required>
+        <small id="duration-hint">Max: -</small>
+    </div>
+
+    <button type="submit" id="calculateBtn">CALCULATE EMI</button>
+
+    <div id="result"></div>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>

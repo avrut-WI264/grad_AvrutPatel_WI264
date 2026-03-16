@@ -1,0 +1,97 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.main-container {
+    border: 4px solid black;
+    background-color: white;
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.header, .footer {
+    background-color: #ffff00;
+}
+
+.header {
+    border-bottom: 4px solid black;
+}
+
+.footer {
+    border-top: 4px solid black;
+}
+
+.sidebar {
+    background-color: #ffb6c1;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 250px;
+        border-right: 4px solid black;
+    }
+    .sidebar li {
+        border-bottom: none !important; 
+    }
+}
+
+.sidebar li {
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px;
+}
+
+.sidebar li:hover, .sidebar li.active {
+    background-color: #ff859e;
+}
+
+.inner-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.inner-content h2 {
+    color: #333;
+    border-bottom: 2px solid #ffb6c1;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.custom-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.custom-btn:hover {
+    background-color: #ff859e;
+    color: black;
+}
+
+form {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
