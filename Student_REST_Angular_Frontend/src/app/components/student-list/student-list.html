@@ -1,0 +1,85 @@
+<div class="container-fluid mt-4">
+  <div class="card mb-4">
+    <div class="card-header bg-light">
+      <h5 class="mb-0">Dashboard & Filters</h5>
+    </div>
+    <div class="card-body">
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchSchool" placeholder="Enter School Name...">
+            <button class="btn btn-outline-primary" type="button" (click)="filterBySchool()">Find</button>
+            <button class="btn btn-outline-info" type="button" (click)="getSchoolCount()">Count</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchStandard" placeholder="Enter Standard...">
+            <button class="btn btn-outline-primary" type="button" (click)="getStandardCount()">Count</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-between">
+            <button class="btn btn-success btn-sm" (click)="filterByResult(true)">Pass List</button>
+            <button class="btn btn-danger btn-sm" (click)="filterByResult(false)">Fail List</button>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchGender" placeholder="Gender (M/F)">
+            <button class="btn btn-outline-primary" type="button" (click)="getStrength()">Check</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary w-100 w-md-auto" (click)="loadStudents()">
+        Reset / View All Students
+      </button>
+
+      <div *ngIf="statMessage" class="alert alert-warning mt-3 mb-0">
+        <strong>Statistic:</strong> {{ statMessage }}
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header bg-light">
+      <h5 class="mb-0">Student Roster</h5>
+    </div>
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-striped table-hover mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Reg No</th>
+              <th>Roll No</th>
+              <th>Name</th>
+              <th>Standard</th>
+              <th>School</th>
+              <th>Gender</th>
+              <th>Percentage</th>
+              <th class="text-center">Actions</th>
+            </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.regNo }}</td>
+      <td>{{ student.rollNo }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.standard }}</td>
+      <td>{{ student.school }}</td>
+      <td>{{ student.gender }}</td>
+      <td>{{ student.percentage }}%</td>
+      <td>
+        <button (click)="editStudent(student.regNo)" style="margin-right: 5px;">Edit</button>
+        <button (click)="deleteStudent(student.regNo)" style="color: red;">Delete</button>
+      </td>
+    </tr>
+    <tr *ngIf="students.length === 0">
+      <td colspan="8" style="text-align: center;">No students found matching this criteria.</td>
+    </tr>
+  </tbody>
+</table>

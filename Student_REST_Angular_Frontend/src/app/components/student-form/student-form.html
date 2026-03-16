@@ -1,0 +1,58 @@
+<div class="container mt-4 mb-4">
+  <div class="row">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 mx-auto">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title mb-4">{{ isEditMode ? 'Edit Student' : 'Add New Student' }}</h3>
+
+          <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            
+            <div class="mb-3">
+              <label class="form-label">Registration Number:</label>
+              <input type="text" class="form-control" formControlName="regNo">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Roll No <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" formControlName="rollNo">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Name <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="name">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Standard (Class) <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="standard">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">School <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" formControlName="school">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Gender <span class="text-danger">*</span></label>
+              <select class="form-select" formControlName="gender">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="mb-4">
+              <label class="form-label">Percentage <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" formControlName="percentage" step="0.01">
+            </div>
+
+            <div class="d-grid gap-2 d-sm-flex">
+              <button type="submit" class="btn btn-success flex-sm-grow-1" [disabled]="studentForm.invalid">
+                {{ isEditMode ? 'Update Student' : 'Save Student' }}
+              </button>
+              <button type="button" class="btn btn-secondary flex-sm-grow-1" (click)="cancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>
